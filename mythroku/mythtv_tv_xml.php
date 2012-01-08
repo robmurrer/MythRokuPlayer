@@ -34,7 +34,7 @@ $num_rows = mysql_num_rows($result);
 //check if appropriate mp4 files exists for each recording
 while ($db_field = mysql_fetch_assoc($result)) {
 
-	if ( !file_exists("../data/recordings/" . RemoveExtension($db_field['basename'] ) . ".mp4" ) ){
+	if ( !file_exists($mythtvdata_ . RemoveExtension($db_field['basename'] ) . ".mp4" ) ){
 		$num_rows = $num_rows - 1;
 		} 
 
@@ -55,7 +55,7 @@ mysql_data_seek ( $result , 0 );
 while ($db_field = mysql_fetch_assoc($result)) {
 
 	//only show mp4 recordings
-	if ( file_exists("../data/recordings/" . RemoveExtension($db_field['basename'] ) . ".mp4" ) ){
+	if ( file_exists($mythtvdata_ . RemoveExtension($db_field['basename'] ) . ".mp4" ) ){
 
 		//compute the length of the show
 		$ShowLength = convert_datetime($db_field['endtime']) - convert_datetime($db_field['starttime']);
