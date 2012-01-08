@@ -9,15 +9,16 @@ $counter = 1000;
 if ($db_found) {
 
         if (isset($_GET['sort']) && $_GET['sort'] == 'date') {
-                $SQL = "SELECT * FROM recorded WHERE filename LIKE '%.mp4' ORDER BY starttime DESC";
+                $SQL = "SELECT * FROM recorded WHERE basename LIKE '%.mp4' ORDER BY starttime DESC";
         }elseif (isset($_GET['sort']) && $_GET['sort'] == 'title'){
-                $SQL = "SELECT * FROM recorded WHERE filename LIKE '%.mp4' ORDER BY title ASC";
+                $SQL = "SELECT * FROM recorded WHERE basename LIKE '%.mp4' ORDER BY title ASC";
         }elseif (isset($_GET['sort']) && $_GET['sort'] == 'genre'){
-                $SQL = "SELECT * FROM recorded WHERE filename LIKE '%.mp4' ORDER BY category ASC";
+                $SQL = "SELECT * FROM recorded WHERE basename LIKE '%.mp4' ORDER BY category ASC";
         }elseif (isset($_GET['sort']) && $_GET['sort'] == 'channel'){
-                $SQL = "SELECT * FROM recorded WHERE filename LIKE '%.mp4' ORDER BY channel ASC";
+                $SQL = "SELECT * FROM recorded WHERE basename LIKE '%.mp4' ORDER BY channel ASC";
         }else {
-                $SQL = "SELECT * FROM recorded WHERE filename LIKE '%.mp4'";
+#                $SQL = "SELECT * FROM recorded WHERE basename LIKE '%.mp4'";
+                $SQL = "SELECT * FROM recorded ";
         }
 
         $result = mysql_query($SQL);
